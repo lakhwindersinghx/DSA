@@ -1,77 +1,89 @@
 public class recursion {
     public static void main(String[] args) {
-
-
-        recursion rs = new recursion();
-        System.out.println(rs.numberZeroes(2504));
-
+        System.out.println(GCD(7, 28));
     }
 
-    public int sum(int number) {
-        if (number < 0 || number == 0) {
-            return 0;
-        }
-        return sum(number / 10) + number % 10;
-    }
-
-    public int power(int base, int exp) {
-        if (exp == 0) {
+    public static int factorial(int number) {
+        if (number == 1 || number == 0) {
             return 1;
         }
-        return base * power(base, exp - 1);
-    }
-
-    public int fibonacci(int number) {
-        if (number < 2) {
-            return number;
-        }
-        return fibonacci(number - 1) + fibonacci(number - 2);
-    }
-
-    public int factorial(int number) {
-        if (number == 1 || number <= 0) {
+        if (number < 0) {
             return 1;
         }
         return number * factorial(number - 1);
     }
 
-    public int sumOfDigits(int number) {
-        if (number <= 0) {
+    public static int fibonaci(int number) {
+        if (number == 0) {
             return 0;
         }
-        return sumOfDigits(number / 10) + (number % 10); //for eg. number=1234 number/10=123 number%10=4 for first iteration
-    }
-
-    public int reverse(int number) {
-        //find number of digits.
-        int digits = (int) (Math.log10(number) + 1);
-        System.out.println("NUMBER OF DIGITS FROM REVERSE: " + digits);
-        return helper(number, digits);
-    }
-
-    public int helper(int number, int digits) {
-        if (number % 10 == number) {
-            return number;
+        if (number == 1) {
+            return 1;
         }
-        int power = (int) (Math.pow(10, digits - 1));
-        System.out.println("Power: " + power);
-        int rem = number % 10;
-        return rem * power + helper(number / 10, digits - 1);
+        return fibonaci(number - 1) + fibonaci(number - 2);
     }
 
-    public int numberZeroes(int number) {
-        int counter = 0;
-        return helperZero(number, counter);
-    }
-
-    public int helperZero(int number, int counter) {
+    public static int sumOfNatural(int number) {
         if (number == 0) {
-            return counter;
+            return 0;
         }
-        int remainder = number % 10;
-        if (remainder == 0) {
-            return helperZero(number / 10, counter + 1);
+        if (number == 1) {
+            return 1;
         }
-        return helperZero(number / 10, counter);
+        return number + sumOfNatural(number - 1);
+    }
+
+    public static void oneToN(int number) {
+        if (number == 1) {
+            System.out.print(1 + "");
+            return;
+        }
+        oneToN(number - 1);
+        System.out.print(number);
+    }
+
+    public static void reverseAString(String value, int length) {
+        if (length < 0) {
+            return;
+        }
+        System.out.print(value.charAt(length));
+        reverseAString(value, length - 1);
+    }
+
+    public static boolean palindrome(String value, int i, int length) {
+        if (i >= length) {
+            return true;
+        }
+        if (value.charAt(i) != value.charAt(length)) {
+            return false;
+        }
+        return palindrome(value, i + 1, length - 1);
+    }
+
+    public static int binarySearch(int[] arr, int target, int length) {
+        return 1;
+    }
+
+    public static int powerNumber(int base, int power) {
+        if (power == 0) {
+            return 1;
+        }
+
+        return base * powerNumber(base, power - 1);
+    }
+
+    public static int sumOfDigits(int number, int index) {
+        String value = String.valueOf(number);
+        if (index >= value.length()) {
+            return 0;
+        }
+        return Character.getNumericValue(value.charAt(index)) + sumOfDigits(number, index + 1);
+    }
+
+    public static int GCD(int a, int b) {
+        if (b == 0) {
+            return a;
+        }
+        return GCD(b, a % b);
     }
 }
