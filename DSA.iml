@@ -8,6 +8,7 @@
       <sourceFolder url="file://$MODULE_DIR$/LinkedListClass" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/StackNQueueExercises" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Jedis" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Tree" isTestSource="false" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
